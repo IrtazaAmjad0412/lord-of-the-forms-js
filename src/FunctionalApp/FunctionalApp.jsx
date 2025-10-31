@@ -2,14 +2,13 @@ import { useState } from "react";
 import { ProfileInformation } from "../ProfileInformation";
 import { FunctionalForm } from "./FunctionalForm";
 
-export const FunctionalApp = () => {
+export const FunctionalApp = ({ submittedFormData, setSubmittedFormData }) => {
   const [firstNameInput, setFirstNameInput] = useState("");
   const [lastNameInput, setLastNameInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
   const [cityInput, setCityInput] = useState("");
   const [phoneNumberState, setPhoneNumberState] = useState(["", "", "", ""]);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [submittedFormData, setSubmittedFormData] = useState(null);
 
   return (
     <>

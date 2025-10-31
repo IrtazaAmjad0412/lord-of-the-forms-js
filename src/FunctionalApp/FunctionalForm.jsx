@@ -3,8 +3,10 @@ import { ErrorMessage } from "../ErrorMessage";
 import { FunctionalTextInput } from "./FunctionalTextInput";
 import { FunctionalPhoneInput } from "./FunctionalPhoneInput";
 
-const firstNameErrorMessage = "First name must be at least 2 characters long";
-const lastNameErrorMessage = "Last name must be at least 2 characters long";
+const firstNameErrorMessage =
+  "First name must be at least 2 characters long and can only contain letters";
+const lastNameErrorMessage =
+  "Last name must be at least 2 characters long and can only contain letters";
 const emailErrorMessage = "Email is Invalid";
 const cityErrorMessage = "City is Invalid";
 const phoneNumberErrorMessage = "Invalid Phone Number";

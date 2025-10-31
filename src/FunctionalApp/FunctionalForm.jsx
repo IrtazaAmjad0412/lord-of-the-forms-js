@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { ErrorMessage } from "../ErrorMessage";
 import { FunctionalTextInput } from "./FunctionalTextInput";
 import { FunctionalPhoneInput } from "./FunctionalPhoneInput";
@@ -12,14 +12,21 @@ const emailErrorMessage = "Email is Invalid";
 const cityErrorMessage = "City is Invalid";
 const phoneNumberErrorMessage = "Invalid Phone Number";
 
-export const FunctionalForm = () => {
-  const [firstNameInput, setFirstNameInput] = useState("");
-  const [lastNameInput, setLastNameInput] = useState("");
-  const [emailInput, setEmailInput] = useState("");
-  const [cityInput, setCityInput] = useState("");
-  const [phoneNumberState, setPhoneNumberState] = useState(["", "", "", ""]);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
+export const FunctionalForm = ({
+  firstNameInput,
+  setFirstNameInput,
+  lastNameInput,
+  setLastNameInput,
+  emailInput,
+  setEmailInput,
+  cityInput,
+  setCityInput,
+  phoneNumberState,
+  setPhoneNumberState,
+  isSubmitted,
+  setIsSubmitted,
+  setSubmittedFormData,
+}) => {
   const refs = [useRef(), useRef(), useRef(), useRef()];
 
   const isFirstNameInputValid = /^[A-Za-z]{2,}$/.test(firstNameInput);
@@ -44,13 +51,6 @@ export const FunctionalForm = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log({
-      firstNameInput,
-      lastNameInput,
-      emailInput,
-      cityInput,
-      phoneNumberState,
-    });
     setIsSubmitted(true);
     if (
       isFirstNameInputValid &&
@@ -59,6 +59,13 @@ export const FunctionalForm = () => {
       isCityInputValid &&
       isPhoneNumberInputValid
     ) {
+      setSubmittedFormData({
+        firstNameInput,
+        lastNameInput,
+        emailInput,
+        cityInput,
+        phoneNumberState,
+      });
       reset();
     } else {
       alert("Bad Inputs");
